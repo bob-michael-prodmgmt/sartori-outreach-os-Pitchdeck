@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outreach OS | Investor Pitch Deck</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #D4A843;
+    --gold-light: #E8C96A;
+    --dark: #0B0E14;
+    --card: #111620;
+    --card-light: #1A2030;
+    --text: #E8E8EC;
+    --muted: #7A8196;
+    --border: #1E2738;
+    --green: #4ADE80;
+    --red: #F87171;
+    --blue: #60A5FA;
+  }
+
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; overflow-y: scroll; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--dark); color: var(--text); }
+
+  .slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+  }
+
+  .slide-inner {
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  .slide-number {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+
+  .logo-mark {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  h1 { font-size: 52px; font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; }
+  h2 { font-size: 38px; font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 24px; }
+  h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  h4 { font-size: 14px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+
+  p { font-size: 18px; line-height: 1.6; color: var(--muted); }
+  p.lead { font-size: 22px; line-height: 1.5; color: var(--text); }
+
+  .gold { color: var(--gold); }
+  .green { color: var(--green); }
+  .muted { color: var(--muted); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+
+  .card-gold {
+    background: linear-gradient(135deg, rgba(212,168,67,0.08), rgba(212,168,67,0.02));
+    border: 1px solid rgba(212,168,67,0.25);
+    border-radius: 12px;
+    padding: 28px;
+  }
+
+  .stat { font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 14px; color: var(--muted); margin-top: 8px; }
+  .stat-sm { font-size: 32px; font-weight: 800; color: var(--gold); }
+
+  .tag {
+    display: inline-block;
+    background: rgba(212,168,67,0.1);
+    border: 1px solid rgba(212,168,67,0.3);
+    color: var(--gold);
+    padding: 4px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 24px 0;
+  }
+
+  ul.deck-list { list-style: none; padding: 0; }
+  ul.deck-list li {
+    font-size: 17px;
+    color: var(--text);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  ul.deck-list li:last-child { border: none; }
+  ul.deck-list li::before {
+    content: ">";
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .flow-step {
+    text-align: center;
+    padding: 20px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    position: relative;
+  }
+  .flow-step .num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .flow-step h3 { font-size: 16px; margin-bottom: 6px; }
+  .flow-step p { font-size: 13px; }
+
+  .quote {
+    font-size: 24px;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+    border-left: 4px solid var(--gold);
+    padding-left: 24px;
+    margin: 24px 0;
+  }
+
+  .founder-name { font-size: 16px; font-weight: 700; color: var(--text); }
+  .founder-title { font-size: 14px; color: var(--muted); }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-date {
+    width: 80px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    align-items: center;
+  }
+  .comp-row.header { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .cta-block {
+    background: linear-gradient(135deg, rgba(212,168,67,0.15), rgba(212,168,67,0.03));
+    border: 2px solid rgba(212,168,67,0.4);
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .slide { padding: 40px 24px; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .stat { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<section class="slide" style="background: radial-gradient(ellipse at 30% 50%, rgba(212,168,67,0.08) 0%, transparent 60%);">
+  <div class="slide-inner" style="text-align: center;">
+    <div class="tag">Pre-Seed | 2026</div>
+    <h1 style="margin-bottom: 24px;">
+      <span class="gold">Outreach OS</span>
+    </h1>
+    <p class="lead" style="max-width: 700px; margin: 0 auto 40px;">
+      The AI-powered job application operating system that turns a 45-minute manual application into a 90-second intelligent submission.
+    </p>
+    <div class="divider" style="margin: 24px auto;"></div>
+    <p style="font-size: 14px;">R. Michael Merritt &middot; Founder & CEO</p>
+    <p style="font-size: 13px; color: var(--muted);">r.michael@sartori.ai</p>
+  </div>
+  <span class="slide-number">01 / 18</span>
+</section>
+
+<!-- SLIDE 2: The Problem -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>The Problem</h4>
+    <h2>Job searching is the worst full-time job<br>nobody trained you for.</h2>
+    <div class="grid-2" style="margin-top: 32px;">
+      <div>
+        <p class="lead" style="margin-bottom: 24px;">
+          The average job seeker spends <strong style="color: var(--gold);">11 hours per week</strong> on applications and receives a response from <strong style="color: var(--red);">less than 4%</strong> of them.
+        </p>
+        <ul class="deck-list">
+          <li>45 minutes per application &mdash; copy-pasting the same data into different forms</li>
+          <li>Every portal asks the same questions in different formats</li>
+          <li>Cover letters are tedious to customize but critical to stand out</li>
+          <li>No visibility into which applications are working or why</li>
+          <li>Senior professionals waste strategic hours on mechanical data entry</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="stat">238</div>
+          <div class="stat-label">Average applications sent before landing an offer (Glassdoor, 2025)</div>
+        </div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="stat">45 min</div>
+          <div class="stat-label">Average time per application &mdash; mostly manual form filling</div>
+        </div>
+        <div class="card">
+          <div class="stat" style="color: var(--red);">~4%</div>
+          <div class="stat-label">Average response rate on job applications</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">02 / 18</span>
+</section>
+
+<!-- SLIDE 3: Market Timing -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Market Insight</h4>
+    <h2>What changed to make this possible <span class="gold">now?</span></h2>
+    <div class="grid-3" style="margin-top: 32px;">
+      <div class="card-gold">
+        <h3>LLMs That Understand Context</h3>
+        <p style="font-size: 15px;">Claude and GPT-4 class models can now parse a resume, understand a job description, and generate genuinely personalized cover letters &mdash; not templates. This was impossible 18 months ago.</p>
+      </div>
+      <div class="card-gold">
+        <h3>AI Form-Filling Agents</h3>
+        <p style="font-size: 15px;">Browser automation + LLM reasoning now enables agents that can navigate arbitrary web forms, map fields intelligently, and fill them with contextual accuracy &mdash; not just autofill.</p>
+      </div>
+      <div class="card-gold">
+        <h3>The Great Reshuffling</h3>
+        <p style="font-size: 15px;">Tech layoffs, AI displacement, and career pivoting have created the largest pool of active job seekers in a decade. 28M Americans searched for jobs in Q1 2026.</p>
+      </div>
+    </div>
+    <div class="divider" style="margin: 40px 0 24px;"></div>
+    <p class="lead">
+      <strong>Our unique insight:</strong> Job applications are a <em>data problem masquerading as a labor problem.</em> Your resume already contains every answer &mdash; the work is mapping it to each portal's format. AI agents eliminate the mapping. What remains is pure strategy.
+    </p>
+  </div>
+  <span class="slide-number">03 / 18</span>
+</section>
+
+<!-- SLIDE 4: Solution -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>The Solution</h4>
+    <h2>From 45 minutes to 90 seconds.<br><span class="gold">Every application. Every portal.</span></h2>
+    <p class="lead" style="margin-bottom: 32px;">
+      Outreach OS is a full-stack application intelligence platform: upload your resume once, and the AI handles form-filling, cover letter generation, fit scoring, and pipeline analytics &mdash; so you spend time on strategy, not data entry.
+    </p>
+    <div class="grid-4">
+      <div class="flow-step">
+        <div class="num">1</div>
+        <h3>Upload Resume</h3>
+        <p>PDF, DOCX, or LinkedIn import. AI parses into 40+ structured fields.</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">2</div>
+        <h3>AI Auto-Fill</h3>
+        <p>Paste any job URL. Agent fills the application form in seconds, not minutes.</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">3</div>
+        <h3>Smart Cover Letter</h3>
+        <p>AI generates a role-specific cover letter grounded in your actual experience. One click to PDF.</p>
+      </div>
+      <div class="flow-step">
+        <div class="num">4</div>
+        <h3>Track & Optimize</h3>
+        <p>Pipeline dashboard, fit scores, response analytics, and pattern detection across all applications.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">04 / 18</span>
+</section>
+
+<!-- SLIDE 5: User Journey (10x Better) -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Customer Understanding</h4>
+    <h2>Where the journey was breaking &mdash;<br>and how we make it <span class="gold">10x better</span></h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card" style="border-color: var(--red); border-color: rgba(248,113,113,0.3);">
+        <h3 style="color: var(--red);">Before Outreach OS</h3>
+        <ul class="deck-list">
+          <li>Open job posting, read description</li>
+          <li>Open resume in another tab, start copy-pasting</li>
+          <li>Navigate 3-7 form pages, re-entering the same data</li>
+          <li>"Upload resume" &mdash; then manually re-type everything it contains</li>
+          <li>Write a cover letter from scratch or send a generic one</li>
+          <li>Submit and forget. No tracking. No learning.</li>
+          <li>Repeat 5-15x per day for weeks or months</li>
+        </ul>
+        <p style="margin-top: 16px; font-size: 14px;"><strong style="color: var(--red);">Result:</strong> 45 min/app &times; 238 apps = 178 hours of mechanical labor before landing an offer.</p>
+      </div>
+      <div class="card-gold">
+        <h3 style="color: var(--green);">With Outreach OS</h3>
+        <ul class="deck-list">
+          <li>Upload resume once &mdash; AI extracts 40+ fields into a structured profile</li>
+          <li>Paste job URL &mdash; AI reads the description and maps your experience to their requirements</li>
+          <li>AI agent fills the form across any portal (Workday, Greenhouse, Lever, etc.)</li>
+          <li>AI generates a personalized cover letter referencing the specific role and your relevant experience</li>
+          <li>One-click submit. Application auto-tracked in your pipeline.</li>
+          <li>Fit scoring tells you which roles to prioritize. Analytics show what's working.</li>
+        </ul>
+        <p style="margin-top: 16px; font-size: 14px;"><strong style="color: var(--green);">Result:</strong> 90 sec/app. Same quality. 30x faster. Strategic time reclaimed.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">05 / 18</span>
+</section>
+
+<!-- SLIDE 6: Product Deep Dive -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Product</h4>
+    <h2>Six modules. One intelligence layer.</h2>
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card">
+        <h3>Resume Intelligence</h3>
+        <p style="font-size: 14px;">Parse PDF/DOCX into structured profile with 40+ fields. AI understands context &mdash; maps "Led cross-functional team of 12" to both leadership and team-size fields.</p>
+      </div>
+      <div class="card">
+        <h3>AI Form Agent</h3>
+        <p style="font-size: 14px;">LLM-powered field resolver. Handles salary expectations, certification matching, free-text composition, and ambiguous fields like "Describe your experience with X."</p>
+      </div>
+      <div class="card">
+        <h3>Cover Letter Engine</h3>
+        <p style="font-size: 14px;">Generates role-specific cover letters grounded in your actual resume. Not templates &mdash; genuine synthesis of your experience mapped to the job requirements. PDF export.</p>
+      </div>
+      <div class="card">
+        <h3>Application Pipeline</h3>
+        <p style="font-size: 14px;">Full CRM for your job search. Track status, dates, contacts, notes. Duplicate detection. Archived vs. active views. Kanban and list views.</p>
+      </div>
+      <div class="card">
+        <h3>Fit Scoring Engine</h3>
+        <p style="font-size: 14px;">Evidence-based scoring that compares your profile against job requirements. Weighted across skills, experience, education, location, and compensation. Leaderboard ranking.</p>
+      </div>
+      <div class="card">
+        <h3>Analytics & Patterns</h3>
+        <p style="font-size: 14px;">Response rates by company, role type, industry. Regional breakdown. Application velocity. Pattern detection: what's getting callbacks vs. silence.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">06 / 18</span>
+</section>
+
+<!-- SLIDE 7: Favorite Feature / Customer Learning -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Customer Insight</h4>
+    <h2>What users love. What we've learned.</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <h3 style="margin-bottom: 16px;">Favorite feature: <span class="gold">Cover Letter Engine</span></h3>
+        <p style="margin-bottom: 16px;">Users consistently say the AI cover letter is the feature that "feels like magic." It doesn't just swap company names &mdash; it synthesizes their actual experience into a narrative that addresses the specific role. One click, one PDF, genuinely personalized.</p>
+        <div class="quote">
+          "I was sending the same cover letter everywhere with the company name swapped. Now each one actually references my relevant projects. I got three callbacks in my first week."
+        </div>
+        <h3 style="margin-top: 32px;">What we dislike about our own product</h3>
+        <p>The form-filling agent doesn't yet handle every ATS portal perfectly. Workday and Greenhouse are solid; some custom portals need fallback to assisted mode. We ship improvements weekly.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 16px;">Biggest learnings from users</h3>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 16px;">Strategy > Volume</h3>
+          <p style="font-size: 14px;">Users who apply to fewer, higher-fit roles with personalized materials outperform spray-and-pray by 5x on callback rate. Our fit scoring reinforces this.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 16px;">Senior Professionals Are Underserved</h3>
+          <p style="font-size: 14px;">Directors, VPs, and C-suite candidates hate applying through portals. They're our most engaged users &mdash; the time savings per application is highest for complex profiles.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 16px;">The Pipeline Is the Product</h3>
+          <p style="font-size: 14px;">Users who track applications and review analytics are 3x more likely to land interviews. The CRM view transformed job searching from chaos into a manageable process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">07 / 18</span>
+</section>
+
+<!-- SLIDE 8: ICP & Pricing -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Go to Market</h4>
+    <h2>ICP, pricing, and market size</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <h3>Granular ICP</h3>
+        <div class="card" style="margin-bottom: 16px;">
+          <p style="font-size: 15px; color: var(--text);"><strong class="gold">Primary:</strong> Mid-to-senior professionals (5-20 years experience) in tech, finance, consulting, and healthcare actively searching for roles. Earning $80K-$250K. Tech-comfortable but frustrated by portal tedium.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <p style="font-size: 15px; color: var(--text);"><strong class="gold">Secondary:</strong> Recent graduates and career changers applying to 50+ roles. Price-sensitive but high-volume users who benefit most from automation.</p>
+        </div>
+        <div class="card">
+          <p style="font-size: 15px; color: var(--text);"><strong class="gold">Expansion:</strong> University career centers, outplacement firms, and staffing agencies licensing the platform for their candidates.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Pricing</h3>
+        <div class="card-gold" style="margin-bottom: 16px; text-align: center;">
+          <div class="stat-sm">$29/mo</div>
+          <p style="font-size: 14px; margin-top: 4px;">Pro tier &mdash; unlimited applications, AI cover letters, full analytics</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px; text-align: center;">
+          <div class="stat-sm" style="color: var(--text);">Free</div>
+          <p style="font-size: 14px; margin-top: 4px;">Starter &mdash; 10 applications/month, basic tracking</p>
+        </div>
+        <h3 style="margin-top: 24px;">Market Size</h3>
+        <div class="card">
+          <p style="font-size: 15px; color: var(--text);"><strong class="gold">TAM:</strong> 28M active US job seekers &times; $348/yr = <strong>$9.7B</strong></p>
+          <p style="font-size: 15px; color: var(--text); margin-top: 8px;"><strong class="gold">SAM:</strong> 6.2M tech/finance/consulting professionals = <strong>$2.2B</strong></p>
+          <p style="font-size: 15px; color: var(--text); margin-top: 8px;"><strong class="gold">SOM:</strong> 50K users in Year 2 = <strong>$17.4M ARR</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">08 / 18</span>
+</section>
+
+<!-- SLIDE 9: Competitive Landscape -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Competitive Awareness</h4>
+    <h2>What exists today &mdash; and why we win</h2>
+    <div style="margin-top: 24px;">
+      <div class="comp-row header">
+        <span>Solution</span>
+        <span>AI Form Fill</span>
+        <span>AI Cover Letters</span>
+        <span>Pipeline + Analytics</span>
+      </div>
+      <div class="comp-row">
+        <span style="color: var(--text); font-weight: 600;">LinkedIn Easy Apply</span>
+        <span style="color: var(--red);">No</span>
+        <span style="color: var(--red);">No</span>
+        <span style="color: var(--red);">No</span>
+      </div>
+      <div class="comp-row">
+        <span style="color: var(--text); font-weight: 600;">Teal / Huntr</span>
+        <span style="color: var(--red);">No</span>
+        <span style="color: var(--muted);">Basic templates</span>
+        <span style="color: var(--green);">Yes</span>
+      </div>
+      <div class="comp-row">
+        <span style="color: var(--text); font-weight: 600;">LazyApply / Sonara</span>
+        <span style="color: var(--muted);">Partial (limited portals)</span>
+        <span style="color: var(--red);">No</span>
+        <span style="color: var(--red);">No</span>
+      </div>
+      <div class="comp-row">
+        <span style="color: var(--text); font-weight: 600;">Simplify.jobs</span>
+        <span style="color: var(--muted);">Chrome extension only</span>
+        <span style="color: var(--red);">No</span>
+        <span style="color: var(--muted);">Basic</span>
+      </div>
+      <div class="comp-row" style="background: rgba(212,168,67,0.05); border-radius: 8px; padding: 16px 12px;">
+        <span style="color: var(--gold); font-weight: 700;">Outreach OS</span>
+        <span style="color: var(--green); font-weight: 600;">Full AI Agent</span>
+        <span style="color: var(--green); font-weight: 600;">AI + PDF Export</span>
+        <span style="color: var(--green); font-weight: 600;">Full CRM + Analytics</span>
+      </div>
+    </div>
+    <div class="divider" style="margin: 32px 0 20px;"></div>
+    <p class="lead"><strong>Why we win:</strong> Nobody else combines an AI form-filling agent, a genuinely personalized cover letter engine, and a full application CRM with analytics in one platform. Competitors solve one piece. We solve the system.</p>
+  </div>
+  <span class="slide-number">09 / 18</span>
+</section>
+
+<!-- SLIDE 10: Wedge & Vision -->
+<section class="slide" style="background: radial-gradient(ellipse at 70% 30%, rgba(212,168,67,0.06) 0%, transparent 60%);">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Long-Term Vision</h4>
+    <h2>The wedge unlocks the platform</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <h3>Year 1-2: Win the Application</h3>
+        <p style="margin-bottom: 20px;">Become the default tool for job seekers who want to apply faster and smarter. Land-and-expand through the individual user.</p>
+        <h3>Year 3-5: Own the Career Stack</h3>
+        <p style="margin-bottom: 20px;">Expand into interview prep (already built), networking intelligence, salary negotiation, and career trajectory planning. Every career transition moment runs through Outreach OS.</p>
+        <h3>Year 5-10: The Professional Intelligence Layer</h3>
+        <p>Outreach OS becomes the system of record for professional identity and career intelligence. Employers, recruiters, and candidates interact through a shared platform where fit scoring replaces keyword matching.</p>
+      </div>
+      <div>
+        <div class="card-gold" style="margin-bottom: 20px;">
+          <h3>Why the wedge unlocks a massive market</h3>
+          <p style="font-size: 15px;">Job applications are the highest-intent moment in a professional's career. By owning that moment, we capture the user at maximum engagement and expand into the full career lifecycle. Every professional applies for jobs &mdash; this is a universal entry point with zero market education required.</p>
+        </div>
+        <div class="card">
+          <h3>Platform expansion already underway</h3>
+          <ul class="deck-list">
+            <li>Case interview prep suite (live, 12+ AI panels)</li>
+            <li>Social media deployment workspace</li>
+            <li>Fundraising intelligence engine for founders</li>
+            <li>Contact enrichment and outreach automation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">10 / 18</span>
+</section>
+
+<!-- SLIDE 11: Founder -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Team & Founder</h4>
+    <h2>Built by someone who lived the problem</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <div class="founder-name" style="font-size: 24px; margin-bottom: 4px;">R. Michael Merritt</div>
+        <div class="founder-title" style="margin-bottom: 20px;">Founder & CEO</div>
+        <ul class="deck-list">
+          <li><strong>7 years at IBM</strong> &mdash; Sr. Director, Data & AI Product Management for Watson and Watsonx. Shipped enterprise AI products at scale.</li>
+          <li><strong>Google Vertex AI</strong> &mdash; Senior AI & Data Architect in startup ecosystems. Built ML infrastructure for early-stage companies.</li>
+          <li><strong>Carnegie Mellon M.S.</strong> in IT (AI, Data Science, LLMs) + MBA (Data Analytics) from University of Illinois + M.S. Financial Engineering from WorldQuant.</li>
+          <li><strong>2 US Patents</strong> &mdash; adaptive reinforcement learning (2025) and ephemeral social networks (2014).</li>
+          <li><strong>UChicago Polsky Center</strong> &mdash; current founder-in-residence.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Why I started this company</h3>
+        <p style="margin-bottom: 20px;">After 15 years building AI products for others, I experienced the job search process myself during the tech reshuffling. I spent 3 weeks filling out applications &mdash; the same data, over and over, into different portals. I knew AI could solve this. I built the first version for myself, and it worked.</p>
+        <h3>Why I won't give up</h3>
+        <p style="margin-bottom: 20px;">I've shipped AI products through IBM's enterprise sales cycles, Google's startup chaos, and healthcare's regulatory labyrinth. I've seen harder problems than this. This one I actually get to solve the way it should be solved.</p>
+        <h3>First hire and why</h3>
+        <p>A full-stack engineer with browser automation expertise. The AI form-filling agent is our core moat &mdash; the first hire deepens that agent's reliability across every ATS portal.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">11 / 18</span>
+</section>
+
+<!-- SLIDE 12: Motivation & Durability -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Motivation & Psychological Durability</h4>
+    <h2>Conviction through experience</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <h3>What other ideas I tinkered with</h3>
+        <p style="margin-bottom: 20px;">Before Outreach OS, I built <strong>Aixion</strong> &mdash; a Decision Intelligence Platform for organizations. The vision was a "reasoning engine" for better decisions. The market wasn't ready; the buyer didn't exist yet. I pivoted to a problem I could feel personally: the broken job search. The Aixion architecture informed Outreach OS's intelligence layer.</p>
+        <h3>How I landed on this idea</h3>
+        <p style="margin-bottom: 20px;">I was applying for AI product roles in early 2026. After filling out my 40th Workday form, I wrote a Python script to auto-fill fields from my resume. It saved 30 minutes per application. I realized this was a product, not a script. I built the full platform in 12 weeks.</p>
+      </div>
+      <div>
+        <h3>What's the #1 reason we will fail?</h3>
+        <div class="card" style="border-color: rgba(248,113,113,0.3); margin-bottom: 24px;">
+          <p style="font-size: 15px; color: var(--text);"><strong style="color: var(--red);">ATS portals fight back.</strong> If Workday, Greenhouse, and Lever actively block form-filling agents, our core automation breaks. We mitigate this with an "assisted mode" fallback (pre-filled clipboard + guided paste) and by building direct ATS integrations over time. The long-term moat is becoming a preferred integration partner, not a scraper.</p>
+        </div>
+        <h3>Why I decided to be a founder</h3>
+        <p>I spent 15 years watching enterprise companies ship AI products slowly and carefully. I wanted to build something that helps individuals immediately &mdash; not in 18 months after a procurement cycle, but today, on their laptop, solving a problem they have right now.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">12 / 18</span>
+</section>
+
+<!-- SLIDE 13: Technical Approach -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Technical Judgment</h4>
+    <h2>Engineering principles &mdash; not a recipe</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <div class="card-gold" style="margin-bottom: 16px;">
+          <h3>AI-Native Architecture</h3>
+          <p style="font-size: 14px;">Every layer is designed for LLM integration from day one &mdash; not bolted on. The AI doesn't sit on top of the product; it <em>is</em> the product. Multi-model strategy optimizes for cost, speed, and quality at each stage.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>Intelligent Form Agent</h3>
+          <p style="font-size: 14px;">Our proprietary agent doesn't pattern-match or use brittle selectors. It <em>reasons</em> about what each field is asking and maps the right answer from the user's profile. This is the core IP &mdash; and it gets smarter with every application.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>Parallelized Intelligence Pipeline</h3>
+          <p style="font-size: 14px;">Multiple AI stages run concurrently, not sequentially. What others do in 30 seconds, we do in under 10. Speed is a feature when you're filling out your 50th application.</p>
+        </div>
+        <div class="card">
+          <h3>Single-Tenant Data, Multi-Model AI</h3>
+          <p style="font-size: 14px;">User data never leaves their account boundary. AI models are called with ephemeral context &mdash; no fine-tuning on user data, no cross-contamination. Privacy by architecture.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>Built for Scale from Day One</h3>
+          <p style="font-size: 14px;">Async-first backend, connection pooling, containerized deployment, and infrastructure-as-code. The architecture handles 10 users or 100,000 without a rewrite.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>Proprietary Scoring Engine</h3>
+          <p style="font-size: 14px;">Evidence-based fit scoring that goes beyond keyword matching. Weighted multi-dimensional analysis across skills, experience, seniority, location, and compensation. Learns from outcomes.</p>
+        </div>
+        <h3 style="margin-top: 24px;">Founder's technical depth</h3>
+        <p style="margin-bottom: 16px;">I code every day. 8,500+ lines of production code shipped in the last sprint alone. 120+ API endpoints, 50+ frontend pages &mdash; built by one person in 12 weeks using AI-augmented development.</p>
+        <p>Prior: 7 years shipping enterprise AI products at IBM Watson. M.S. from Carnegie Mellon in AI/Data Science. 2 US patents. This isn't my first AI system &mdash; it's my best one.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">13 / 18</span>
+</section>
+
+<!-- SLIDE 14: Traction & Execution -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Distribution & Execution</h4>
+    <h2>Built fast. Shipping faster.</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <h3 style="margin-bottom: 16px;">Execution Timeline</h3>
+        <div class="timeline-item">
+          <div class="timeline-date">Mar 2026</div>
+          <div><p style="font-size: 15px; color: var(--text);">First line of code. Core platform architecture, contact management, email integration.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2026</div>
+          <div><p style="font-size: 15px; color: var(--text);">Application tracking, resume parsing, cover letter engine, scoring system, fundraising intelligence module.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 2026</div>
+          <div><p style="font-size: 15px; color: var(--text);">Social deployment workspace, LinkedIn API integration, AI form agent, analytics dashboard, case interview prep suite.</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jun 2026</div>
+          <div><p style="font-size: 15px; color: var(--text);">Meeting summary engine, action items, metric combinatorics, parallelized AI pipeline. 65 files, 8,500+ lines in one sprint.</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 16px;">Distribution Strategy</h3>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 16px;">Unfair Advantage: I Am the ICP</h3>
+          <p style="font-size: 14px;">I'm a senior AI product leader who just went through the job search. My network is the beachhead &mdash; hundreds of tech professionals in the same situation.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 16px;">Content-Led Growth</h3>
+          <p style="font-size: 14px;">LinkedIn posts about the job search journey and AI tools. Social deployment workspace lets me publish consistently across 8 platforms. Authentic storytelling, not ads.</p>
+        </div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 16px;">Community & Word of Mouth</h3>
+          <p style="font-size: 14px;">Job seekers talk to each other. Every user who saves 30 hours tells their network. Early adopter webhook captures inbound interest.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 16px;">University Career Centers</h3>
+          <p style="font-size: 14px;">B2B expansion. UChicago Polsky Center is the first partnership. Career centers license the platform for graduating students.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">14 / 18</span>
+</section>
+
+<!-- SLIDE 15: KPIs & Metrics -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Traction & KPIs</h4>
+    <h2>Early signals</h2>
+    <div class="grid-4" style="margin-top: 32px;">
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat">30x</div>
+        <div class="stat-label">Faster application completion vs. manual</div>
+      </div>
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat">120+</div>
+        <div class="stat-label">API endpoints shipped</div>
+      </div>
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat">50+</div>
+        <div class="stat-label">Frontend pages built</div>
+      </div>
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat">12 wk</div>
+        <div class="stat-label">From zero to full platform (solo founder)</div>
+      </div>
+    </div>
+    <div class="divider" style="margin: 40px 0 24px;"></div>
+    <h3>Key metrics we track</h3>
+    <div class="grid-3" style="margin-top: 16px;">
+      <div class="card">
+        <h3 style="font-size: 16px;">Application Velocity</h3>
+        <p style="font-size: 13px;">Applications per session, time per application, completion rate. Target: 90 seconds per submission.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size: 16px;">Callback Rate</h3>
+        <p style="font-size: 13px;">% of applications that generate a response. Tracked by fit score tier to validate the scoring model.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size: 16px;">Cover Letter Generation</h3>
+        <p style="font-size: 13px;">Letters generated per user per week. Usage correlates with callback rate &mdash; validates the value prop.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">15 / 18</span>
+</section>
+
+<!-- SLIDE 16: Business Model -->
+<section class="slide">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>Business Model</h4>
+    <h2>SaaS with expansion revenue</h2>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <div class="card" style="margin-bottom: 16px;">
+          <h3>B2C: Individual Subscriptions</h3>
+          <p style="font-size: 14px; margin-bottom: 12px;"><strong class="gold">Free:</strong> 10 apps/month, basic tracking</p>
+          <p style="font-size: 14px; margin-bottom: 12px;"><strong class="gold">Pro ($29/mo):</strong> Unlimited apps, AI cover letters, full analytics, form agent</p>
+          <p style="font-size: 14px;"><strong class="gold">Premium ($59/mo):</strong> Everything + interview prep suite, priority support, API access</p>
+        </div>
+        <div class="card">
+          <h3>B2B: Institutional Licenses</h3>
+          <p style="font-size: 14px;">University career centers, outplacement firms, staffing agencies. Per-seat licensing with admin dashboard, usage analytics, and branded experience.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Unit Economics (Target)</h3>
+        <div class="card-gold" style="margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 14px;">ARPU</span>
+            <span style="font-size: 14px; font-weight: 700;">$29/mo</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 14px;">AI cost per user/mo</span>
+            <span style="font-size: 14px; font-weight: 700;">~$2.50</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 14px;">Infrastructure per user/mo</span>
+            <span style="font-size: 14px; font-weight: 700;">~$0.50</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 14px;">Gross Margin</span>
+            <span style="font-size: 14px; font-weight: 700; color: var(--green);">~90%</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="font-size: 14px;">Target LTV (8mo avg tenure)</span>
+            <span style="font-size: 14px; font-weight: 700; color: var(--gold);">$232</span>
+          </div>
+        </div>
+        <p style="font-size: 14px;">Job search is a high-churn category (users stop when they land a role), but expansion into career management extends lifetime. Interview prep and networking modules retain users beyond the active search.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">16 / 18</span>
+</section>
+
+<!-- SLIDE 17: The Ask -->
+<section class="slide" style="background: radial-gradient(ellipse at 50% 50%, rgba(212,168,67,0.08) 0%, transparent 50%);">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner">
+    <h4>The Ask</h4>
+    <h2>Pre-Seed: <span class="gold">$1.5M</span></h2>
+    <p class="lead" style="margin-bottom: 32px;">18 months of runway to reach 5,000 paying users and $1.7M ARR.</p>
+    <div class="grid-3" style="margin-bottom: 40px;">
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat-sm">50%</div>
+        <p style="font-size: 14px; margin-top: 8px;"><strong>Engineering</strong><br>First 2 hires. Deepen form agent, expand ATS coverage, mobile app.</p>
+      </div>
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat-sm">30%</div>
+        <p style="font-size: 14px; margin-top: 8px;"><strong>Growth</strong><br>Content marketing, university partnerships, community building.</p>
+      </div>
+      <div class="card-gold" style="text-align: center;">
+        <div class="stat-sm">20%</div>
+        <p style="font-size: 14px; margin-top: 8px;"><strong>Operations</strong><br>Infrastructure, AI costs, legal, and 18 months of burn cushion.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card" style="text-align: center;">
+        <h3>Month 6</h3>
+        <p style="font-size: 14px;">1,000 users, 200 paid. Workday + Greenhouse + Lever coverage at 95%. University pilot live.</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <h3>Month 12</h3>
+        <p style="font-size: 14px;">5,000 users, 1,500 paid. Mobile app launched. 3 university partnerships. $500K ARR.</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <h3>Month 18</h3>
+        <p style="font-size: 14px;">15,000 users, 5,000 paid. B2B channel live. Series A ready. $1.7M ARR.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">17 / 18</span>
+</section>
+
+<!-- SLIDE 18: Close -->
+<section class="slide" style="background: radial-gradient(ellipse at 50% 50%, rgba(212,168,67,0.1) 0%, transparent 50%);">
+  <span class="logo-mark">Outreach OS</span>
+  <div class="slide-inner" style="text-align: center;">
+    <div class="cta-block">
+      <h2 style="margin-bottom: 16px;">
+        The job search is broken.<br>
+        <span class="gold">We're building the fix.</span>
+      </h2>
+      <p class="lead" style="max-width: 600px; margin: 0 auto 32px;">
+        One founder. Twelve weeks. A full-stack AI platform that turns 45 minutes of tedium into 90 seconds of intelligence.
+      </p>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <p style="font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 8px;">R. Michael Merritt</p>
+      <p style="font-size: 15px; color: var(--muted); margin-bottom: 4px;">r.michael@sartori.ai &middot; (415) 286-5286</p>
+      <p style="font-size: 15px; color: var(--muted);">UChicago Polsky Center &middot; Chicago, IL</p>
+    </div>
+  </div>
+  <span class="slide-number">18 / 18</span>
+</section>
+
+</body>
+</html>
